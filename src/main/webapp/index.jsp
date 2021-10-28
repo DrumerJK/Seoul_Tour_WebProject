@@ -5,12 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
+
 </head>
 <body>
 
 	<h1>메인페이지</h1>
 	<hr>
-	<a href="login.me">로그인</a><br>
+	<a  href="loginForm.me">로그인</a><br>
+	<a  href="logout.me">로그아웃</a><br>
+	<br>
+	<a  href="myPage.me">마이페이지</a><br>
+	<a  href="adminPage.me">관리자페이지</a><br>
+	<br>
+	<br>
 	
 	<a href="getTourList.do">관광지 리스트</a><br>
 	
