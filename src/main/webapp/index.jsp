@@ -19,7 +19,7 @@
 	<br>
 	<br>
 	
-	<a href="getTourList.do">관광지 리스트</a><br>
+	<a href="getTourListMain.do">관광지 리스트</a><br>
 	
 	<a href="getReviewList.do">리뷰 리스트</a><br>
 	

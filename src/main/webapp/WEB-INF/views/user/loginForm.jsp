@@ -14,14 +14,17 @@
 			<tr>
 				<td>ID</td>
 				<td><input type="text" name="id"></td>
-				<td rowspan="2"><input type="submit" value="LOGIN"></td>
 			</tr>
 			<tr>
 				<td>PW</td>
-				<td><input type="password" name="pw"></td>
+				<td><input type="password" name="pw">&nbsp;<input type="submit" value="LOGIN"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><a href="membershipForm.me">회원가입</a></td>
+				<td colspan="3"> <!-- 비밀번호 찾기, 아이디 찾기 필요할 것 같아서 구현_소율 -->
+					<a href="">비밀번호 찾기</a> <a> / </a> 
+					<a href="">아이디 찾기</a> <a> / </a>
+					<a href="membershipForm.me">회원가입</a>
+				</td>
 			</tr>
 		</table>
 	</form>

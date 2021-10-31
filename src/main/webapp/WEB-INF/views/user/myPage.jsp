@@ -13,9 +13,9 @@
 	<ul>
 		<li><a href="updateUser.me">회원정보수정</a></li>
 		<li><a href="deleteUser.me">회원탈퇴</a></li>
-		<li><a href="getUserReview.do">내가 쓴 리뷰</a></li>
-		<li><a href="getLikeList.do">찜 리스트</a></li>
-		<li><a href="getUserQnaList">나의 문의</a></li>
+		<li><a href="getUserReview.me">내가 쓴 리뷰</a></li>
+		<li><a href="getLikeList.me">찜 리스트</a></li>
+		<li><a href="getUserQnaList.me">나의 문의</a></li>
 	</ul>
 
 </body>

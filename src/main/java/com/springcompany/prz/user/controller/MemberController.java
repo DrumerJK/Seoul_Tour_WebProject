@@ -12,7 +12,7 @@ public class MemberController {
 		
 		System.out.println("로그인 화면 호출");
 		
-		return "loginForm";
+		return "user/loginForm";
 	}
 	
 	//로그아웃
@@ -29,7 +29,7 @@ public class MemberController {
 		
 		System.out.println("회원가입 화면 호출");
 		
-		return "membershipForm";
+		return "user/membershipForm";
 	}
 	
 	//회원가입 아이디 중복확인
@@ -46,7 +46,52 @@ public class MemberController {
 		
 		System.out.println("마이페이지 화면 호출");
 		
-		return "myPage";
+		return "user/myPage";
 	}
+	
+	//회원정보수정
+	@RequestMapping("/updateUser.me")
+	public String updateUser() {
+			
+		System.out.println("회원정보수정 화면 호출");
+			
+		return "user/updateUser";
+	}
+	
+	//회원탈퇴
+	@RequestMapping("/deleteUser.me")
+	public String deleteUser() {
+				
+		System.out.println("회원탈퇴 화면 호출");
+				
+		return "user/deleteUser";
+	}
+	
+	//회원이 쓴 리뷰
+	@RequestMapping("/getUserReview.me")
+	public String getUserReview() {
+					
+		System.out.println("내가 쓴 리뷰 화면 호출");
+					
+		return "user/getUserReview";
+	}
+	
+	//회원 문의 리스트
+	@RequestMapping("/getUserQnaList.me")
+	public String getUserQnaList() {
+						
+		System.out.println("회원 문의 리스트 화면 호출");
+						
+		return "user/getUserQnaList";
+	}	
+	
+	//회원 문의 리스트
+	@RequestMapping("/getLikeList.me")
+	public String getLikeList() {
+						
+		System.out.println("찜 리스트 화면 호출");
+						
+		return "user/getLikeList";
+	}	
 	
 }

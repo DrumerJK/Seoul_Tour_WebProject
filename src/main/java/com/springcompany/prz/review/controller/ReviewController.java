@@ -12,7 +12,7 @@ public class ReviewController {
 		
 		System.out.println("리뷰 리스트 페이지 호출");
 		
-		return "getReviewList";
+		return "review/getReviewList";
 	}
 	
 	//리뷰 상세보기 페이지 
@@ -21,7 +21,7 @@ public class ReviewController {
 			
 		System.out.println("리뷰 상세보기 페이지 호출");
 			
-		return "getReviewDetail";
+		return "review/getReviewDetail";
 	}
 		
 	//리뷰 쓰기 페이지 
@@ -30,7 +30,7 @@ public class ReviewController {
 					
 	System.out.println("리뷰 쓰기 페이지 호출");
 				
-	return "insertReviewForm";
+	return "review/insertReviewForm";
 	}
 	
 }
