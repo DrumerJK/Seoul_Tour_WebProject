@@ -1,10 +1,16 @@
 package com.springcompany.prz.admin.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.springcompany.biz.admin.service.AdminService;
+
 @Controller
 public class AdminController {
+	
+	@Autowired //서비스 객체 주입
+	AdminService adminService;
 
 	//관리자 페이지 호출
 	@RequestMapping("/adminPage.me")
@@ -20,6 +26,8 @@ public class AdminController {
 	public String getNoticeList() {
 		
 		System.out.println("공지사항 페이지 호출");
+		
+		adminService.getNoticeList();
 		
 		return "admin/getNoticeList";
 	}
@@ -38,6 +46,8 @@ public class AdminController {
 	public String getNoticeDetail() {
 			
 		System.out.println("공지사항 상세보기 호출");
+		
+		adminService.getNoticeDetail();
 			
 		return "admin/getNoticeDetail";
 	}
@@ -47,6 +57,8 @@ public class AdminController {
 	public String manageMember() {
 			
 		System.out.println("회원관리 페이지 호출");
+		
+		adminService.manageMember();
 			
 		return "admin/manageMember";
 	}
@@ -56,6 +68,8 @@ public class AdminController {
 	public String getMemberDetail() {
 			
 		System.out.println("회원 상세보기 호출");
+		
+		adminService.getMemberDetail();
 			
 		return "admin/getMemberDetail";
 	}	
@@ -65,6 +79,8 @@ public class AdminController {
 	public String deleteMember() {
 			
 		System.out.println("회원 탈퇴 처리");
+		
+		adminService.deleteMember();
 			
 		return "admin/deleteMember";
 	}	
@@ -74,6 +90,8 @@ public class AdminController {
 	public String getQnaList() {
 			
 		System.out.println("회원문의 게시판 처리");
+		
+		adminService.getQnaList();
 			
 		return "admin/getQnaList";
 	}	
@@ -83,6 +101,8 @@ public class AdminController {
 	public String getQnaDetail() {
 			
 		System.out.println("회원문의 게시판 상세보기 처리");
+		
+		adminService.getQnaDetail();
 			
 		return "admin/getQnaDetail";
 	}	
@@ -100,7 +120,7 @@ public class AdminController {
 	@RequestMapping("/insertQnaReply.me")
 	public void insertQnaReply() {
 			
-		System.out.println("회원문의 답변작성 ,ehdwkr 처리");
+		System.out.println("회원문의 답변작성 ,동작 처리");
 			
 	}		
 	

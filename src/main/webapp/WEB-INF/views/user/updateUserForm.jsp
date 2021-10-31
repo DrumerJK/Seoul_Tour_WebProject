@@ -42,11 +42,11 @@
 				<td>이메일</td>
 				<td><input type="email" name="email" value="${usr.email}"></td>
 			</tr>
-			<tr>
+			<%--<tr>
 				<td>상세 주소</td>
 				<td><input type="text" name="address" value="${usr.address}"></td>
 			</tr>
-<%-- 			<tr>
+ 			<tr>
 				<td>시/군/구</td>
 				<td><input type="text" name="city" value="${usr.city}"></td>
 			</tr>
@@ -62,22 +62,11 @@
 				<td>국가</td>
 				<td><input type="text" name="country" value="${usr.country}"></td>
 			</tr> --%>
-			<tr>
-				<td>휴대폰</td>
-				<td><input type="tel" name="phoneNumber" value="${usr.phoneNumber}"></td>
-			</tr>
-			<tr>
-				<td>성별</td>
-				<td>
-				    <label for="male">남자</label>
-				    <input type="radio" name="gender" id="male">
-				    <label for="female">여자</label>
-				    <input type="radio" name="gender" id="female">
-				</td>
-			</tr>
+			
+		
 			<tr align="center">
 			    <td colspan="2" align="right">
-					<input type="button" value="탈퇴하기" >&nbsp;				
+					<a href="./deleteUser.jsp" ><input type="button" value="탈퇴하기"></a>&nbsp;				
 					<input type="submit" value="회원정보수정"  onclick="alert('회원정보가 저장되었습니다.')">
 				</td>
 			</tr>

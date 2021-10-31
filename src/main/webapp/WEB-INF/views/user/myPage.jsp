@@ -11,7 +11,7 @@
 	<h2>마이페이지</h2>
 
 	<ul>
-		<li><a href="updateUser.me">회원정보수정</a></li>
+		<li><a href="updateUserForm.me">회원정보수정</a></li>
 		<li><a href="deleteUser.me">회원탈퇴</a></li>
 		<li><a href="getUserReview.me">내가 쓴 리뷰</a></li>
 		<li><a href="getLikeList.me">찜 리스트</a></li>
