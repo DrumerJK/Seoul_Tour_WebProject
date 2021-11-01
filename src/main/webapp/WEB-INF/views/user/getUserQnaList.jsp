@@ -25,15 +25,7 @@
                     이메일
                 </td> 
                 <td>
-                    <input type="email">&nbsp;<input type="checkbox">답변수신을 이메일로 받겠습니다.
-                </td>           
-            </tr>
-            <tr>
-                <td>
-                    문자메시지
-                </td> 
-                <td>
-                    <input type="tel">&nbsp;<input type="checkbox">답변수신을 문자메시지로 받겠습니다. 
+                    <input type="email">
                 </td>           
             </tr>
             <tr>
@@ -76,6 +68,20 @@
                 </td>
                 <td>
                     작성일
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    00000
+                </td>
+                <td>
+                    untitle
+                </td>
+                <td>
+                    송중기
+                </td>
+                <td>
+                    2021.10.31
                 </td>
             </tr>
         </table>

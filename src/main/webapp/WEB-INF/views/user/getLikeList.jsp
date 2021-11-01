@@ -50,17 +50,17 @@
                     </tr>
                     <tr>
                         <td rowspan="5">
-                            <input type="checkbox">찜한 장소 사진
+                            <input type="checkbox">체크박스와 함께 찜한 장소 사진이 나타남.
                         </td>
                         <td>
-                            제목과 리뷰 요약
+                            제목과 리뷰 요약이 있는 자리....
                         </td>
                     </tr>
                 
                 </table>
                 
                 <br><br><br><br>
-                <input type="submit" value="삭제" name="deleteAll">
+                <input type="submit" value="삭제" name="deleteAll" onclick="alert('삭제가 되었습니다.')">
                 
                 
                 
