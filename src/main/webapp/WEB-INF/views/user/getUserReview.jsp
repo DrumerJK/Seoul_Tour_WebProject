@@ -1,61 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 목록</title>
+<title>서울 콕: 당신의 서울을 즐겁게</title>
 </head>
 <body>
     
     <div align="center">        
             <h3>내가 쓴 리뷰 목록</h3> 
             <hr width="60%">
-                <form action="getUserReview.do" method="post">
-                       <table border="1" cellpadding="0" cellspacing="0" width="800px">
-				    <tr>
-					<td align="right">
-					<select name="searchCondition">
-						<option value="예시 1">번호
-						<option value="예시 2">별점
-						<option value="예시 3">제목
-						<option value="예시 4">게시일
-						<option value="예시 5">내용
-						<option value="예시 6">작성자
-						<option value="예시 7">방문 일자
-						<option value="예시 8">방문한 장소
-						<!-- 관광지 이름 -> 방문한 장소로 수정 -->
-					</select> 
-					<input name="searchKeyword" type="text" /> 
-					<input type="submit" value="검색" /></td>
-				    </tr>
-			</table>         
-                </form>
-                <table border="1" cellpadding="0" cellspacing="0" width="800px">
-			<tr>
+                <table border="1" cellpadding="0" cellspacing="0" width="1000px">
+			<tr align="center">
 				<td>번호</td>
-				<td>별점</td>
+				<td>체험 평가</td>
 				<td>제목</td>
-				<td>게시일</td> <!-- 위치 수정 -->
+				<td>방문 일자</td> <!-- 위치 수정 -->
 				<td>내용</td> <!-- 삽입 -->
 				<td>작성자</td>
-				<td>방문 일자</td> <!-- 삽입 -->
-				<td>방문한 장소</td> <!-- 위치 수정 -->
+				<td>방문한 장소</td>
 				<!-- 관광지 이름 -> 방문한 장소로 수정 -->
 			</tr>
+			<c:forEach items="${reviewList}" var="review">
+				<tr align="center">
+					<td>${review.seq}</td>
+					<td>${review.love}</td>
+					<td	style="border: 1px solid black; 
+								max-width: 150px; 
+								overflow: hidden; 
+								white-space: nowrap; 
+								text-overflow: ellipsis;"><a href="getReviewDetail.do?seq=${review.seq}">${review.title}</a>
+					</td>
+					<td>${review.visitedDate}</td>
+					<td style="border: 1px solid black; 
+								max-width: 200px; 
+								overflow: hidden; 
+								white-space: nowrap; 
+								text-overflow: ellipsis;">${review.content}
+					</td>
+					<td>${review.writer}</td>
+					<td style="border: 1px solid black; 
+								max-width: 120px; 
+								overflow: hidden; 
+								white-space: nowrap; 
+								text-overflow: ellipsis;">${review.target}
+					</td>
+				</tr>
+			</c:forEach>
 			<tr>
-				<!-- 위 순서대로 수정 -->
-				<td>1</td>
-				<td>★★★★★</td>
-				<td><a href="./getReviewDetail.do">창덕궁 광해와 걷다.</a></td>
-				<td>2021.10.29</td>
-				<td>좋아요</td>
-				<td>사용자ID</td>
-				<td>2021.10.28</td>
-				<td>경복궁</td>
-			</tr>
-			<tr>
-				<td colspan="8" align="right"><a href="./insertReviewForm.do">리뷰쓰기</a></td>
+				<td colspan="8" align="right"><a href="insertReviewForm.do">리뷰쓰기</a></td>
 			</tr>
 		</table>
     </div>
