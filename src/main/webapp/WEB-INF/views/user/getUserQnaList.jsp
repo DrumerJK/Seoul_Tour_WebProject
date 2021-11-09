@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나의 문의 조회</title>
+<title>서울 콕: 당신의 서울을 즐겁게</title>
 
 <style type="text/css">
 
@@ -162,6 +162,11 @@
 	#title{
 		width: 40%;
 	}
+	
+	#title a{
+		color: black;
+	}
+	
 	#cnt{
 		width: 10%;	
 	}
@@ -239,7 +244,6 @@
 
     
     <div align="center" id="wrapper">
-        <h3>나의 문의 조회</h3>
         <table>
 			<tr>
 				<td class="category">번호</td>

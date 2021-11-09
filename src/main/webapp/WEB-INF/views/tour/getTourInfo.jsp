@@ -11,6 +11,12 @@
 	/* 헤더 영역 CSS */
 	@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 	@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	@font-face {
+	    font-family: 'BMDOHYEON';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
 	
 	header{
 		width: 100%;
@@ -90,7 +96,7 @@
 		align-items: center;
 		justify-content: center;
 		font-size: large;
-		
+		font-family: 'BMDOHYEON', sans-serif;
 	}
 	
 	#tourInfo{
@@ -104,12 +110,15 @@
 	}
 	.infoSubject{
 		width: 150px;
+		font-size: 1.2em;
+		
 	}
 	
 	.infoDetail {
 		padding-top: 20px;
 		padding-bottom: 20px;
 		border-bottom: 1px solid rgb(200, 200, 200);
+		font-size: 1.2em;
 		text-align: justify;
 	}
 
@@ -174,7 +183,7 @@
 						'</tr>'+
 						'<tr>'+
 							'<td class="infoSubject" align="left"><b>개요</b></td>'+
-							'<td class="infoDetail" align="left">'+data.response.body.items.item.overview+'</td>'+
+							'<td class="infoDetail" align="left"><p>'+data.response.body.items.item.overview+'</p></td>'+
 						'</tr>'+	
 						'<tr>'+
 							
@@ -290,7 +299,7 @@
 	
 		<hr>
 			<div id="pageTitle">
-				
+		
 			</div>
 		<hr>
 		
@@ -303,33 +312,6 @@
 
 		<hr>
 		
-		
-	<!-- 해당 관광지 리뷰 목록 -->
-	<table width="1000px" border="1" cellpadding="0" cellspacing="0">
-			<tr>
-				<td>번호</td>
-				<td>별점</td>
-				<td>제목</td>
-				<td>게시일</td>
-				<td>내용</td>
-				<td>작성자</td>
-				<td>방문 일자</td>
-				<td>방문한 장소</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>★★★★★</td>
-				<td><a href="getReviewDetail.do">예시</a>></td>
-				<td>2021.10.29</td>
-				<td>좋아요</td>
-				<td>사용자ID</td>
-				<td>2021.10.28</td>
-				<td>경복궁</td>
-			</tr>
-			<tr>
-				<td colspan="8" align="right"><a href="insertReviewForm.do">리뷰쓰기</a></td>
-			</tr>
-		</table>
 </div>
 
 

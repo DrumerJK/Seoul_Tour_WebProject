@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원 QnA 수정하기</title>
+<title>서울 콕: 당신의 서울을 즐겁게</title>
 
 <style type="text/css">
 

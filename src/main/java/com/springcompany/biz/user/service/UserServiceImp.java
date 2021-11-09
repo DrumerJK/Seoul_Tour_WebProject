@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springcompany.biz.admin.dao.QnaVO;
+import com.springcompany.biz.review.dao.ReviewVO;
 import com.springcompany.biz.user.dao.UserDAO;
 import com.springcompany.biz.user.dao.userVO;
 
@@ -138,10 +139,10 @@ public class UserServiceImp implements UserService{
 	
 	
 	//내가 쓴 리뷰
-	public void getUserReview() {
+	public List<ReviewVO> getUserReview(String loginId) {
 		System.out.println("내가 쓴 리뷰 서비스 호출");
 		
-		userDAO.getUserReview();
+		return userDAO.getUserReview(loginId);
 	}
 		
 	

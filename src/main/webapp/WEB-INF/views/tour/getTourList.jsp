@@ -193,6 +193,7 @@
 		background-color: rgb(0, 121, 188);
 		color: white;
 		font-size: medium;
+		font-family: 'BMDOHYEON', sans-serif;
 	}
 	
 	#keywordSubmit:hover{

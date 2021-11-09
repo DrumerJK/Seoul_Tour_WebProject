@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.springcompany.biz.admin.dao.QnaVO;
+import com.springcompany.biz.review.dao.ReviewVO;
 import com.springcompany.biz.user.dao.userVO;
 import com.springcompany.biz.user.service.UserService;
 
@@ -232,12 +233,16 @@ public class MemberController {
 	
 	//회원이 쓴 리뷰
 	@RequestMapping("/getUserReview.me")
-	public String getUserReview() {
+	public String getUserReview(HttpSession session, Model model) {
 					
 		System.out.println("내가 쓴 리뷰 화면 호출");
 		
-		userService.getUserReview();
-					
+		String loginId = session.getAttribute("loginId").toString();
+		
+		List<ReviewVO> list = userService.getUserReview(loginId);
+
+		model.addAttribute("reviewList", list);
+
 		return "user/getUserReview";
 	}
 	

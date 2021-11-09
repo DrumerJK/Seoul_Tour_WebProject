@@ -250,7 +250,7 @@
 			<a id="kakao" href="https://developers.kakao.com/"><b>kakao developers</b></a>
 		</span>
 		<span id="devsName">
-			Developed By Kim Jun Gi ,Kim Eui Soo, Kim Yu Jin, Yun So-Yul, Lee Kyung Jin, MJ Namgoong 
+			Developed By Kim Jun Gi / Kim Eui Soo / Kim Yu Jin / Yun So-Yul / Lee Kyung Jin / Namgoong MJ
 		</span>
 	</footer>
 	

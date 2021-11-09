@@ -120,6 +120,10 @@
 		border-bottom: 1px solid rgb(230, 230, 230);
 	}
 	
+	.lists a{
+		color: black;
+	}
+	
 	
 	#button{ 
 		margin-top: 50px;

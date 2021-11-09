@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.springcompany.biz.admin.dao.QnaVO;
+import com.springcompany.biz.review.dao.ReviewVO;
 import com.springcompany.biz.user.dao.userVO;
 
 public interface UserService {
@@ -54,7 +55,7 @@ public interface UserService {
 	//리뷰관련 시작
 	
 	//내가 쓴 리뷰
-	void getUserReview();
+	List<ReviewVO> getUserReview(String loginId);
 	
 	//리뷰관련 끝
 }

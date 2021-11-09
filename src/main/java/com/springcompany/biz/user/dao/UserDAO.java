@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springcompany.biz.admin.dao.QnaVO;
+import com.springcompany.biz.review.dao.ReviewVO;
 
 @Repository
 public class UserDAO {
@@ -97,8 +98,10 @@ public class UserDAO {
 	
 	
 	//내가 쓴 리뷰
-	public void getUserReview() {
+	public List<ReviewVO> getUserReview(String loginId) {
 		System.out.println("내가 쓴 리뷰 DAO 호출");
+		
+		return mybatis.selectList("ReviewDAO.getUserReviewList", loginId);
 	}
 		
 	

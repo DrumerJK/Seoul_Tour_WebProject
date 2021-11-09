@@ -34,6 +34,12 @@
 	]]>
 	</select>
 	
+	<select id="getUserReviewList" resultType="review">
+	<![CDATA[
+		select * from reviewboard where writer=#{loginId} order by seq desc
+	]]>
+	</select>
+	
 	<select id="getReviewDetail" resultType="review">
 	<![CDATA[
 		select * from reviewboard where seq=#{seq}
