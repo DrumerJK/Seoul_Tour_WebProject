@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,25 +55,21 @@
 			<tr>
 				<td align="left">동행자 &nbsp;</td>
 				<td>
-					<select name="companion">
-						<option value="커플">커플
-						<option value="가족(아이 동반)">가족(아이 동반)
-						<option value="가족">가족
-						<option value="친구들">친구들
-						<option value="비즈니스">비즈니스
-						<option value="나홀로 여행">나홀로 여행
-					</select>
+					<c:if test="${review.companion == '커플'}">커플</c:if>
+					<c:if test="${review.companion == '가족(아이 동반)'}">가족(아이 동반)</c:if>
+					<c:if test="${review.companion == '가족'}">가족</c:if>
+					<c:if test="${review.companion == '친구들'}">친구들</c:if>
+					<c:if test="${review.companion == '비즈니스'}">비즈니스</c:if>
+					<c:if test="${review.companion == '나홀로 여행'}">나홀로 여행</c:if>
 				</td>
 			</tr>
 			<tr>
 				<td align="left">추천 방문 시간 &nbsp;</td>
 				<td>
-					<select name="recommendationTime">
-						<option value="1시간 미만">1시간 미만
-						<option value="1-2시간">1-2시간
-						<option value="2-3시간">2-3시간
-						<option value="3시간 이상">3시간 이상
-					</select>
+					<c:if test="${review.recommendationTime == '1시간 미만'}">1시간 미만</c:if>
+					<c:if test="${review.recommendationTime == '1-2시간'}">1-2시간</c:if>
+					<c:if test="${review.recommendationTime == '2-3시간'}">2-3시간</c:if>
+					<c:if test="${review.recommendationTime == '3시간 이상'}">3시간 이상</c:if>
 				</td>
 			</tr>
 			<tr>
