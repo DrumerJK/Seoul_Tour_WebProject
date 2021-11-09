@@ -1,53 +1,53 @@
 package com.springcompany.biz.admin.service;
 
+import java.util.List;
+
+import com.springcompany.biz.admin.dao.NoticeVO;
+import com.springcompany.biz.admin.dao.QnaVO;
+import com.springcompany.biz.user.dao.userVO;
+
 public interface AdminService {
 	
 	//회원관리기능 CRUD(생성, 리딩, 수정, 삭제) - 회원의 생성과 수정은 user파트에서 관리하므로 생략.
 	
 	//회원리스트
-	void manageMember();
+	List<userVO> manageMember();
 	
 	//회원상세보기
-	void getMemberDetail();
+	userVO getMemberDetail(String id);
 
 	//회원삭제
-	void deleteMember();
+	void deleteMember(String id);
 	
 	
 	//공지사항 CRUD
 	
 	//공지사항 등록
-	void insertNotice();
+	void insertNotice(NoticeVO vo);
 	
 	//공지사항 리스트
-	void getNoticeList();
+	List<NoticeVO> getNoticeList();
 	
 	//공지사항 상세보기
-	void getNoticeDetail();
+	NoticeVO getNoticeDetail(int seq);
 	
 	//공지사항 수정
-	void updateNotice();
+	void updateNotice(NoticeVO vo);
 	
 	//공지사항 삭제
-	void deleteNotice();
+	void deleteNotice(int seq);
 	
 	
 	//QnA CRUD
 	
-	//QnA 작성
-	void insertQna();
-	
 	//QnA 리스트
-	void getQnaList();
+	List<QnaVO> getQnaList(QnaVO vo);
 	
 	//QnA 상세보기
-	void getQnaDetail();
+	QnaVO getQnaDetail(int seq);
 	
-	//QnA 수정
-	void updateQna();
-	
-	//QnA 삭제
-	void deleteQna();
+	//게시글 총 개수
+	int countboard();	
 	
 	
 }

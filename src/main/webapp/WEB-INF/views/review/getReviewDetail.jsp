@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,90 +10,68 @@
 </head>
 <body>
 	<div align="center">
-	<h2>리뷰 상세보기</h2>
-		<table width="800px" border="1" cellpadding="0" cellspacing="0">
-			<!-- 위치 수정 및 삽입 -->
-			<tr>
-				<td height="10px" align="left">
-					<h2>&nbsp;창덕궁 광해와 걷다.</h2><!-- 리뷰 제목 -->
-				</td>
-			</tr>
-			<tr>
-				<td height="0px" align="left">&nbsp;창덕궁 리뷰</td><!-- 방문한 장소 -->
-			</tr>
-			<tr>
-				<td height="10px" align="left">&nbsp;★★★★★ <!-- 체험 평가하기 -->&nbsp;<a>게시일: 2021.10.29</a> </td>
-			</tr>
-
+		<hr>
+		<h2>리뷰 상세보기</h2>
+		<hr>
 		
-			<br>
-			
-			<tr>
-				<td height="200px" align="left">&nbsp; 내용 영역 </td><!-- 리뷰 남기기 -->
-			</tr>
-			<tr>
-				<td height="300px" align="left">&nbsp; 사진 영역 </td><!-- 사진 업로드  -->
-			</tr>
-			<tr>
-				<td height="10px" align="right">방문 일자: 2021년 10월 / 동행자: 커플 / 권장 방문시간: 1시간 미만&nbsp;</td>
-			</tr>
-			<tr>
-				<td align="center"><button>공감</button> <a href=""><button>공유</button></a> <input type="submit" value="신고하기"></td>
-			</tr>
-		</table>
-			
-		<br>
+		<input name="seq" type="hidden" value="${review.seq}" />
 		
-		<!-- 댓글 영역 -->
-		
-		<!-- 댓글 쓰기, 리스트 위치 변경 -->
-		<!-- 댓글 리스트 영역 -->
-		<table width="800px" border="1" cellpadding="0" cellspacing="0">
+		<table width="1000px" border="1" cellpadding="0" cellspacing="0">
 			<tr>
-				<td>&nbsp;작성자 ID</td>
+				<td height="10px" width="150px" align="left">&nbsp; 리뷰 제목</td>
+				<td align="left">&nbsp; ${review.title}</td>
+			<tr>
+				<td>&nbsp; 작성자</td>
+				<td align="left">&nbsp; ${review.writer}</td>
 			</tr>
 			<tr>
-				<td colspan="2">&nbsp;작성 내용1</td>
+				<td height="0px" align="left">&nbsp; 방문한 장소</td>
+				<td align="left">&nbsp; ${review.target}</td>
 			</tr>
 			<tr>
-				<td>&nbsp;2021.10.29 18:00</td>
-			</tr>
-		</table>
-		
-		<br>
-		
-		<table width="800px" border="1" cellpadding="0" cellspacing="0">
-			<tr>
-				<td>&nbsp;작성자 ID</td>
+				<td height="10px" align="left">&nbsp; 체험 평가</td>
+				<td align="left">&nbsp; ${review.love}</td>
 			</tr>
 			<tr>
-				<td colspan="2">&nbsp;작성 내용2</td>
+				<td height="10px" align="left">&nbsp; 게시일</td>
+				<td align="left">&nbsp; ${review.postedDate}</td>
 			</tr>
 			<tr>
-				<td>&nbsp;2021.10.29 18:00</td>
+				<td height="200px" align="left">&nbsp; 리뷰 남기기 </td>
+				<td align="left" padding="1">&nbsp; ${review.content}</td>
+			</tr>
+			<tr>
+				<td height="200px" align="left">&nbsp; 추억 남기기 </td>
+				<td align="left"><img alt="" src="reviewUpload/${review.fileName}"></td>
+			</tr>
+			<tr>
+				<td align="left">&nbsp; 방문 일자 </td><!-- 리뷰 남기기 -->
+				<td align="left">&nbsp; ${review.visitedDate}</td>
+			</tr>
+			<tr>
+				<td align="left">&nbsp; 동행자 </td><!-- 리뷰 남기기 -->
+				<td align="left">&nbsp; ${review.companion}</td>
+			</tr>
+			<tr>
+				<td align="left">&nbsp; 추천 방문 시간 </td><!-- 리뷰 남기기 -->
+				<td align="left">&nbsp; ${review.recommendationTime}</td>
+			</tr>
+			<tr>
+				<td>&nbsp; 조회수</td>
+				<td align="left">&nbsp; ${review.cnt}</td>
 			</tr>
 		</table>
 		
-		<br>
+		<hr>
 		
-		<!-- 댓글 쓰기 영역 -->
-		<form action="">
-			<table width="800px">
-				<tr>
-					<td colspan="2">댓글 쓰기</td>
-				</tr>
-				<tr>
-					<td colspan="2">사용자 ID</td>
-				</tr>
-				<tr>
-					<td colspan="2"><textarea rows="2" cols="111" name="reviewReply"></textarea></td>					
-				</tr>
-				<tr>
-					<td align="right"><input type="submit" value="등록"></td>
-				</tr>
-			</table>
-		</form>
-		</div>
+			<c:if test="${ loginId == review.writer }">
+				<a href="updateReviewForm.do?seq=${ review.seq }">수정</a>&nbsp;&nbsp;&nbsp; 
+				<a href="deleteReview.do?seq=${ review.seq }">삭제</a>&nbsp;&nbsp;&nbsp;			
+			</c:if>
+			<a href="getReviewList.do">리뷰 리스트</a>
+		<hr>
+		
+	</div>
 
 
 </body>
