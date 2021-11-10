@@ -210,7 +210,7 @@
 			<div id="titleSpace"></div>
 			<hr>
 				<div id="pageTitle">
-					<h1 align="center">방문자 리뷰</h1>
+					<h1 align="center">관광지 리뷰</h1>
 				</div>
 			<hr>
 
