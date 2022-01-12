@@ -19,7 +19,7 @@
 >
 >김유진 <yujin1914@naver.com>
 >
->남궁문재 <>
+>남궁문재 <gogichar@naver.com>
 >
 >윤소율 <soyul9175@naver.com>
 >
@@ -116,7 +116,7 @@ https://user-images.githubusercontent.com/92901381/148728647-0099df1f-02eb-420d-
 
 
 
-## 개선 사항
+## 추후 개선할 사항
 ### 1. 보안 조치
   - API를 활용하는 과정에 있어서 Javascript를 통해 동적으로 처리해주다보니 은닉해줘야 할 정보도 노출되는 등 보안에 취약합니다. 이는 REST API 요청과 관련한 정보를 비즈니스 레이어에서 Java의 GSON 라이브러리를 활용하는 등의 방안을 통해 해결할 수 있을 것으로 판단하고 있습니다.
 ### 2. Bootstrap, React 등 프론트엔드 프레임워크 적용
