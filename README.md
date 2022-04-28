@@ -68,6 +68,33 @@ https://user-images.githubusercontent.com/92901381/148728647-0099df1f-02eb-420d-
 관광지 정보는 한국관광공사 국문관광정보 API를 활용하였습니다. 
 
 ( 참조 : https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15057787 )
+
+
+<details><summary>코드 상세</summary>
+  <p>
+  JSON 형식의 데이터를 읽어들이기 위해 jQuery의 getJSON 함수를 사용하였습니다.
+  아래는 지역구별 검색을 위해 각 구의 이름을 불러오는 코드를 예시로 보여주고 있습니다.
+    
+    ```
+    $(function(){
+			$.getJSON('http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?'+
+					'ServiceKey=인증키'+
+					'&areaCode=1'+
+					'&numOfRows=25'+
+					'&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json',
+				function(data){
+					$.each(data.response.body.items.item, function(){
+						$('#areaNames').append(
+							'<div class="areaName"><a href="getTourList.do?areaSearch='+this.code+'">'+this.name+'</a></div>'
+							
+						);
+					});	
+				});
+		});
+    ```
+    
+ </p>
+</details>
 <br><br><br><br><br>
 
 <img width="960" alt="TourList2" src="https://user-images.githubusercontent.com/92901381/148729406-dba8d2e1-bb7c-4018-9225-62afb10fbf16.png">
@@ -79,6 +106,9 @@ https://user-images.githubusercontent.com/92901381/148728647-0099df1f-02eb-420d-
 <img width="960" alt="TourList3" src="https://user-images.githubusercontent.com/92901381/148729401-7dd7e8cd-6450-4d2d-8471-69a12144f6c2.png">
 
 '궁'이라는 키워드로 검색하여 정보를 출력한 모습입니다.
+- 개선 작업 중 '경복궁' 등으로 검색하여 결과가 1개만 노출될 경우 화면에 아무것도 출력되지 않는 현상이 발견되었습니다.
+  이는 개선본에서 검색 결과물이 1개일 때와 그렇지 않을 때의 조건을 분기하여 처리하였습니다.
+
 <br><br><br><br><br>
 ### 3. 관광지 상세정보 페이지
 
@@ -91,7 +121,43 @@ https://user-images.githubusercontent.com/92901381/148728647-0099df1f-02eb-420d-
 <br><br><br><br><br>
 <img width="960" alt="TourInfo3" src="https://user-images.githubusercontent.com/92901381/148730244-e34aec9b-ce40-4f84-bb25-bceca890aa96.png">
 <br><br><br>
-지도 정보는 카카오 API를 활용하여 구현하였으며, 지도 좌표정보 또한 REST API를 통해 읽어온 정보입니다. 
+지도 정보는 카카오 API를 활용하여 구현하였으며, 지도 좌표정보 또한 REST API를 통해 읽어온 정보입니다.
+
+- 개선 작업 중 동일망 내의 다른 기기로 접속하면 지도 객체가 생성되지 않는 문제가 있었습니다. 이는 Kakao Developers 서비스에서 사이트 도메인을 추가로 등록함으로써 해결할 수 있었습니다.
+
+<details><summary>코드 상세</summary>
+  <p>
+    
+  ```
+  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(data.response.body.items.item.mapy, data.response.body.items.item.mapx), // 지도의 중심좌표
+			        level: 4 // 
+			    };
+			
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
+				
+	var mapTypeControl = new kakao.maps.MapTypeControl();
+	
+	// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의, TOPRIGHT는 오른쪽 위를 의미
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+	
+	// 줌 컨트롤
+	var zoomControl = new kakao.maps.ZoomControl();
+	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+			
+	var markerPosition  = new kakao.maps.LatLng(data.response.body.items.item.mapy, data.response.body.items.item.mapx); 
+	// 마커 생성
+	var marker = new kakao.maps.Marker({
+	             position: markerPosition
+	             });
+	// 마커 지도 위에 표시
+	marker.setMap(map);
+  ```
+
+  </p>
+</details>
+
 <br><br><br><br><br>
 
 ### 4. 로그인 계정에 따른 화면 출력 제어
@@ -112,6 +178,27 @@ https://user-images.githubusercontent.com/92901381/148728647-0099df1f-02eb-420d-
 <img width="960" alt="Notice4" src="https://user-images.githubusercontent.com/92901381/148731047-abb487c3-e8ad-4863-8702-3504234f41ef.png">
 <br>
 관리자로 로그인 한 상태로 공지사항을 확인해보면 쓰기, 수정, 삭제 등의 버튼이 활성화되어 있는 것을 확인할 수 있습니다.
+
+<details><summary>코드 상세</summary>
+  <p>
+  JSP 스크립틀릿으로 세션객체를 확인하여 제어합니다.  
+    
+  ```
+  <div id="buttons" align="right">
+		<%if(session.getAttribute("loginId") != null){ %>
+		<%	if(session.getAttribute("loginId").equals("admin")) {%>
+		<a href="updateNoticeForm.do?seq=${noticeDetail.seq}">공지사항 수정</a>
+		<a href="deleteNotice.do?seq=${noticeDetail.seq}" onclick="alert('글 삭제가 완료되었습니다.')">공지사항 삭제</a>
+		<%	}
+		}%>
+		
+		<a href="getNoticeList.do">공지사항 목록</a>
+	</div>
+  ```
+
+  </p>
+</details>
+
 <br><br><br><br><br><br>
 
 
